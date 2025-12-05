@@ -1,0 +1,33 @@
+{
+    "model_1": {
+        "val_accuracy": 0.831410825252533,
+        "val_recall": 0.8305084705352783,
+        "val_loss": 0.3892849087715149,
+        "test_accuracy": 0.7963094115257263,
+        "test_recall": 0.7994652390480042,
+        "test_loss": 0.41838064789772034,
+        "best_epoch": 6,
+        "total_params": 4737
+    },
+    "model_2": {
+        "val_accuracy": 0.8145518898963928,
+        "val_recall": 0.8237287998199463,
+        "val_loss": 0.3812143802642822,
+        "test_accuracy": 0.8012775182723999,
+        "test_recall": 0.8181818127632141,
+        "test_loss": 0.4063613712787628,
+        "best_epoch": 8,
+        "total_params": 15105
+    },
+    "model_3": {
+        "val_accuracy": 0.8145518898963928,
+        "val_recall": 0.7762711644172668,
+        "val_loss": 0.3899996876716614,
+        "test_accuracy": 0.8005678057670593,
+        "test_recall": 0.7647058963775635,
+        "test_loss": 0.4286629855632782,
+        "best_epoch": 10,
+        "total_params": 5121
+    },
+    "selected_model": "Model 2 (Dropout)"
+}
