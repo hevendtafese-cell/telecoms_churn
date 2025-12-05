@@ -1,0 +1,23 @@
+[project]
+name = "ai-solution-for-telecom-churn-prediction"
+version = "0.1.0"
+description = "Deep Learning solution for predicting telecom customer churn with Streamlit UI"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.40.0",
+    "pandas>=2.2.0",
+    "numpy>=1.26,<2.2",
+    "scikit-learn>=1.6.0",
+    "plotly>=5.24.0",
+    "matplotlib>=3.10.0",
+    "seaborn>=0.13.0",
+    "ipykernel>=7.1.0",
+
+    # Linux TensorFlow (Streamlit Cloud)
+    "tensorflow; platform_system == 'Linux'",
+
+]
+
+[tool.poetry]
+package-mode = false
