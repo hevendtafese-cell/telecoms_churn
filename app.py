@@ -345,7 +345,7 @@ def main():
     
     with tab3:
         st.header("About This Application")
-        
+        metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
         if metrics_data and 'model_3' in metrics_data:
             m = metrics_data['model_3']
             
