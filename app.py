@@ -51,15 +51,11 @@ st.markdown("""
 @st.cache_data
 def load_metrics(mtime):
     
-
-
-
-def load_metrics():
     """Always load the latest metrics JSON"""
     try:
         with open('models/metrics.json', 'r') as f:
         return json.load(f)
-        metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
+      
     except Exception as e:
         st.error(f"Error loading metrics: {e}")
         return None
@@ -176,7 +172,7 @@ def display_model_metrics(metrics, show_header=True):
 def main():
     st.markdown('<h1 class="main-header">🤖 Churn Prediction AI</h1>', unsafe_allow_html=True)
     
-    metrics_data = load_metrics()
+  metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
     model = load_model() 
     preprocessing = load_preprocessing()
     
