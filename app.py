@@ -174,7 +174,7 @@ def display_model_metrics(metrics, show_header=True):
 def main():
     st.markdown('<h1 class="main-header">🤖 Churn Prediction AI</h1>', unsafe_allow_html=True)
     
-  metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
+    metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
     model = load_model() 
     preprocessing = load_preprocessing()
     
