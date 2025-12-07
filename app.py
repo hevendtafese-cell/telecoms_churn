@@ -61,7 +61,7 @@ def load_metrics():
         st.error(f"Error loading metrics: {e}")
         return None
 
-@st.cache_resource
+
 def load_model():
     """Load trained model"""
 
@@ -71,7 +71,6 @@ def load_model():
         st.error(f"Error loading model: {e}")
         return None
 
-@st.cache_resource
 def load_preprocessing():
     """Load preprocessing objects"""
     try:
