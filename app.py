@@ -345,6 +345,14 @@ def main():
     
     with tab3:
         st.header("About This Application")
+        st.markdown("""
+This application predicts which telecom customers are at risk of leaving, helping the company take timely action to retain them. 
+It analyzes customer and service data to identify patterns and provide clear churn risk insights. 
+Beyond predictions, it highlights the potential business impact, showing how much revenue could be saved. 
+The interface is interactive, allowing users to quickly assess individual customer risk and support smarter retention decisions. 
+Overall, it transforms complex data into actionable insights to protect both customers and revenue.
+""")
+
         metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
         if metrics_data and 'model_3' in metrics_data:
             m = metrics_data['model_3']
