@@ -48,7 +48,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-@st.cache_data
+
 def load_metrics():
     """Load metrics from JSON - SINGLE SOURCE OF TRUTH"""
     try:
