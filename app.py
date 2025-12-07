@@ -49,16 +49,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+@st.cache_data
 def load_metrics(mtime):
-    
     """Always load the latest metrics JSON"""
     try:
         with open('models/metrics.json', 'r') as f:
-        return json.load(f)
-      
+            return json.load(f)
     except Exception as e:
         st.error(f"Error loading metrics: {e}")
         return None
+
+
+
 def load_model():
     """Load trained model"""
 
