@@ -354,8 +354,8 @@ Overall, it transforms complex data into actionable insights to protect both cus
 """)
 
         metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
-        if metrics_data and 'model_3' in metrics_data:
-            m = metrics_data['model_3']
+        if metrics_data and 'model_2' in metrics_data:
+            m = metrics_data['model_2']
             
             col1, col2 = st.columns(2)
             
