@@ -49,19 +49,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+
+
 def load_metrics():
-    """Load metrics from JSON - SINGLE SOURCE OF TRUTH"""
+    """Always load the latest metrics JSON"""
     try:
         with open('models/metrics.json', 'r') as f:
             return json.load(f)
-    except FileNotFoundError:
-        st.error("⚠️ metrics.json not found. Run notebook first.")
-        return None
     except Exception as e:
         st.error(f"Error loading metrics: {e}")
         return None
-
-
 def load_model():
     """Load trained model"""
 
