@@ -48,19 +48,20 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
 @st.cache_data
-def load_metrics(mtime):
-    """Always load the latest metrics JSON"""
+def load_metrics():
+    """Load metrics from JSON - SINGLE SOURCE OF TRUTH"""
     try:
         with open('models/metrics.json', 'r') as f:
             return json.load(f)
+    except FileNotFoundError:
+        st.error("⚠️ metrics.json not found. Run notebook first.")
+        return None
     except Exception as e:
         st.error(f"Error loading metrics: {e}")
         return None
 
-
-
+@st.cache_resource
 def load_model():
     """Load trained model"""
 
@@ -70,6 +71,7 @@ def load_model():
         st.error(f"Error loading model: {e}")
         return None
 
+@st.cache_resource
 def load_preprocessing():
     """Load preprocessing objects"""
     try:
@@ -174,7 +176,7 @@ def display_model_metrics(metrics, show_header=True):
 def main():
     st.markdown('<h1 class="main-header">🤖 Churn Prediction AI</h1>', unsafe_allow_html=True)
     
-    metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
+    metrics_data = load_metrics()
     model = load_model() 
     preprocessing = load_preprocessing()
     
@@ -345,6 +347,7 @@ def main():
     
     with tab3:
         st.header("About This Application")
+      
         st.markdown("""
 This application predicts which telecom customers are at risk of leaving, helping the company take timely action to retain them. 
 It analyzes customer and service data to identify patterns and provide clear churn risk insights. 
@@ -353,7 +356,7 @@ The interface is interactive, allowing users to quickly assess individual custom
 Overall, it transforms complex data into actionable insights to protect both customers and revenue.
 """)
 
-        metrics_data = load_metrics(os.path.getmtime('models/metrics.json'))
+        
         if metrics_data and 'model_2' in metrics_data:
             m = metrics_data['model_2']
             
@@ -391,4 +394,5 @@ Overall, it transforms complex data into actionable insights to protect both cus
             st.warning("Metrics not loaded")
 
 if __name__ == "__main__":
+
     main()
